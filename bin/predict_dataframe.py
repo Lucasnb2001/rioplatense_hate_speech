@@ -1,12 +1,24 @@
-from tqdm.auto import tqdm
-import pandas as pd
-import fire
-import time
-from rioplatense_hs.tasks.hate_speech import build_prompt as build_hate_prompt
-from rioplatense_hs.tasks.regionalisms import build_prompt as build_regionalism_prompt
-from rioplatense_hs.preprocessing import text_to_label, labels
-from rioplatense_hs.openai import get_completion
+import sys
+print("Script iniciando...")
+print("Importando bibliotecas...")
 
+print("Importando tqdm no projeto...")
+from tqdm.auto import tqdm
+print("Importando pandas no projeto...")
+import pandas as pd
+print("Importando fire no projeto...")
+import fire
+print("Importando time no projeto...")
+import time
+print("Importando build_prompt no projeto...")
+from rioplatense_hs.tasks.hate_speech import build_prompt as build_hate_prompt
+print("Importando build_regional no projeto...")
+from rioplatense_hs.tasks.regionalisms import build_prompt as build_regionalism_prompt
+print("Importando text_to_labels no projeto...")
+from rioplatense_hs.preprocessing import text_to_label, labels
+print("Importando get_completion no projeto...")
+from rioplatense_hs.openai import get_completion
+print("Todas as imports OK")
 
 def predict_row(context, text, build_prompt, model_name="gpt-3.5-turbo"):
     try:

@@ -1,3 +1,4 @@
+print("importando...")
 import fire
 from tqdm.auto import tqdm
 import pandas as pd
@@ -9,12 +10,13 @@ from pysentimiento.preprocessing import preprocess_tweet
 def bert_predict(
     input,
     output,
-    model_name="piuba-bigdata/beto-ft-contextualized-hate-speech",
-    batch_size=16,
+    model_name="piuba-bigdata/beto-contextualized-hate-speech",
+    batch_size=8,
 ):
+    print("Carregando modelo...")
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
-
+    print("Carregando dados...")
     df = pd.read_csv(input, index_col=0)
 
     # Iterate over the batches and predict
