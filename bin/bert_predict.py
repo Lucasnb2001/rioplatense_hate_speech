@@ -18,6 +18,8 @@ def bert_predict(
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
     print("Carregando dados...")
     df = pd.read_csv(input, index_col=0)
+    df['context_tweet'] = df['context_tweet'].fillna('')
+
 
     # Iterate over the batches and predict
 
